@@ -1,4 +1,7 @@
 # Prerequisites
+.*
+!.gitignore
+*~
 *.d
 
 # Compiled Object files
@@ -30,3 +33,14 @@
 *.exe
 *.out
 *.app
+
+# Cmake
+build/
+
+CMakeSettings.json
+compile_commands.json
+
+#CLion
+cmake-build/
+cmake-build-debug/
+.idea/

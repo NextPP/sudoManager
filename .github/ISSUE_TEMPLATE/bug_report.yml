@@ -1,0 +1,47 @@
+name: Bug report
+description: Report a bug in sudoManager
+body:
+
+- type: markdown
+  attributes:
+    value: |
+      - Read our [CONTRIBUTING.md guide](https://github.com/NextPP/sudoManager/wiki/How-to-contribute) on reporting bugs.
+      - Write a descriptive issue title above.
+      - Search [open](https://github.com/NextPP/sudoManager/issues) and [closed](https://github.com/NextPP/sudoManager/issues?q=is%3Aissue+is%3Aclosed) issues to ensure it has not already been reported.
+
+- type: input
+  attributes:
+    label: Compiler & Compiler version 
+    description: >
+      Specify the compiler and the version that you can reproduce the bug with.
+    placeholder: GCC 10.3.0
+  validations:
+    required: true
+
+- type: input
+  attributes:
+    label: System information
+    description: |
+      Specify the OS version, and when relevant hardware information.
+    placeholder: Windows 10,
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Issue description
+    description: |
+      Describe your issue briefly. What doesn't work, and how do you expect it to work instead?
+      You can include images or videos with drag and drop, and format code blocks or logs with <code>```</code> tags.
+  validations:
+    required: true
+
+- type: textarea
+  attributes:
+    label: Steps to reproduce
+    description: |
+      List of steps or sample code that reproduces the issue. Having reproducible issues is a prerequisite for contributors to be able to solve them.
+      If you include a minimal reproduction project below, you can detail how to use it here.
+  validations:
+    required: true
+
