@@ -2,6 +2,7 @@
 #include "../src/Item.hpp"
 int main() {
   Item spaghetti;
+  spaghetti.setItemID(1);
   spaghetti.setName("Spaghetti");
   spaghetti.setPrice(9.98);
   spaghetti.setStock(8);

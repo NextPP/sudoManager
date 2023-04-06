@@ -8,17 +8,17 @@
 #define SUDOMANAGER_ITEM_HPP
 
 #include <iostream>
-#include <vector>
 class Item {
  private:
   std::string name_;
+  int item_ID_;
   float price_;
   int stock_;
   std::string additional_info_;
 
  public:
   Item();
-  Item(std::string item_name, float item_price, int item_stock);
+  Item(int item_ID, std::string item_name, float item_price, int item_stock);
   ~Item() = default;
 
   void printItemInfo();
@@ -33,6 +33,8 @@ class Item {
   int getStock() const;
   void setStock(int stock);
   const std::string& getAdditionalInfo() const;
+  int getItemID() const;
+  void setItemID(int item_ID);
 };
 
 #endif  // SUDOMANAGER_ITEM_HPP
