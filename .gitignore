@@ -1,5 +1,4 @@
 # Prerequisites
-.*
 !.gitignore
 *~
 *.d
@@ -35,8 +34,9 @@
 *.app
 
 # Cmake
+.cache/
 build/
-
+Testing/
 CMakeSettings.json
 compile_commands.json
 
@@ -44,3 +44,6 @@ compile_commands.json
 cmake-build/
 cmake-build-debug/
 .idea/
+
+#VSCode
+.vscode/
