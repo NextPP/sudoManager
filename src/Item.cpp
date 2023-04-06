@@ -36,7 +36,7 @@ void Item::printItemInfo() {
 
 
 
-  std::cout << "Name: " << name_ << ", "
+  std::cout << "Item Name: " << name_ << ", "
             << "Price: " << ((price_ >= 0.f) ? price_string : "Not Set") << ", "
             << "Amount in Stock: "
             << ((stock_ >= 0) ? std::to_string(stock_) : "Not Set") << ", "
