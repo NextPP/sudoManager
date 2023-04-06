@@ -1,10 +1,9 @@
 //
-// Created by 24crickenbach on 4/6/2023.
+// Created by Jahrr on 4/6/2023.
 //
-
+// Last edited by Jahrr on 4/6/2023
+//
 #include "Item.hpp"
-
-#include <utility>
 
 // Number values that are not set are set to -1 by default
 Item::Item() : name_{"Not Set"}, price_{-1}, stock_{-1} {}
@@ -29,12 +28,8 @@ void Item::printItemInfo() {
   std::string price_string;
 
   price_string = std::to_string(price_);
-  price_string.erase(
-      price_string.find_last_not_of('0') + 1, std::string::npos);
-  price_string.erase(
-      price_string.find_last_not_of('.') + 1, std::string::npos);
-
-
+  price_string.erase(price_string.find_last_not_of('0') + 1, std::string::npos);
+  price_string.erase(price_string.find_last_not_of('.') + 1, std::string::npos);
 
   std::cout << "Item Name: " << name_ << ", "
             << "Price: " << ((price_ >= 0.f) ? price_string : "Not Set") << ", "

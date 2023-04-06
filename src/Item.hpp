@@ -8,7 +8,6 @@
 #define SUDOMANAGER_ITEM_HPP
 
 #include <iostream>
-#include <sstream>
 #include <vector>
 class Item {
  private:
