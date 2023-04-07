@@ -19,4 +19,5 @@ include(cmake/UpdateSubmodules.cmake)
 include(CTest)
 
 add_subdirectory(extern)
+add_subdirectory(tests)
 add_subdirectory(bin)
