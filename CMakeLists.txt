@@ -12,4 +12,11 @@ if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
     FATAL_ERROR "In-source builds are not allowed,please make new directory")
 endif()
 
+# Ensures latest GTest Library
+include(cmake/UpdateSubmodules.cmake)
+
+# Enables BUILD_TESTING
+include(CTest)
+
+add_subdirectory(extern)
 add_subdirectory(bin)
