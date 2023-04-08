@@ -8,17 +8,18 @@
 #define SUDOMANAGER_ITEM_HPP
 
 #include <iostream>
+#include <optional>
 class Item {
  private:
+  std::optional<int> item_ID_;
   std::string name_;
-  int item_ID_;
-  float price_;
-  int stock_;
+  std::optional<float> price_;
+  std::optional<int> stock_;
   std::string additional_info_;
 
  public:
   Item();
-  Item(int item_ID, std::string item_name, float item_price, int item_stock);
+  Item(int item_ID, std::string_view item_name, float item_price, int item_stock);
   ~Item() = default;
 
   void printItemInfo();
