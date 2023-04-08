@@ -1,5 +1,4 @@
 # Prerequisites
-.*
 !.gitignore
 *~
 *.d
@@ -36,7 +35,7 @@
 
 # Cmake
 build/
-
+Testing/
 CMakeSettings.json
 compile_commands.json
 
