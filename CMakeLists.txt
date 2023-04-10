@@ -14,6 +14,7 @@ if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
     FATAL_ERROR "In-source builds are not allowed,please make new directory")
 endif()
 
+
 add_subdirectory(bin)
 
 set(SOURCE_FILES bin/bluey.cpp src/Item.cpp)
@@ -25,3 +26,13 @@ target_include_directories(${PROJECT_NAME} PUBLIC include/sudoManager)
 
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
+
+# Ensures latest GTest Library
+include(cmake/UpdateSubmodules.cmake)
+
+# Enables BUILD_TESTING
+include(CTest)
+
+add_subdirectory(extern)
+add_subdirectory(tests)
+
