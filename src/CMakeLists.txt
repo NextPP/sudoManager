@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(sudoManager_src)
+project(sudoManager)
+add_library(${PROJECT_NAME} SHARED Menu.cpp Item.cpp)
 
-add_executable(menu_class Menu.cpp)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
