@@ -8,8 +8,12 @@
 // Number values that are not set are set to -1 by default
 Item::Item() : item_ID_{-1}, name_{"Not Set"}, price_{-1}, stock_{-1} {}
 
-Item::Item(int item_ID, std::string_view item_name, float item_price, int item_stock)
-    : item_ID_{item_ID}, name_{item_name}, price_{item_price}, stock_{item_stock} {}
+Item::Item(
+    int item_ID, std::string_view item_name, float item_price, int item_stock)
+    : item_ID_{item_ID},
+      name_{item_name},
+      price_{item_price},
+      stock_{item_stock} {}
 
 void Item::appendAdditionalInfo(const std::string& info) {
   if (additional_info_.empty()) {
