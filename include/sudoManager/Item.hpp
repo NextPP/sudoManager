@@ -18,14 +18,15 @@ class Item {
 
  public:
   Item();
-  Item(int item_ID, std::string_view item_name, float item_price, int item_stock);
+  Item(
+      int item_ID, std::string_view item_name, float item_price,
+      int item_stock);
   ~Item() = default;
 
   void printItemInfo();
   void appendAdditionalInfo(const std::string& info);
 
-
-  //Getters and setters
+  // Getters and setters
   const std::string& getName() const;
   void setName(const std::string& name);
   float getPrice() const;

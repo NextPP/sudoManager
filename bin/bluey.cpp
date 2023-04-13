@@ -10,7 +10,7 @@ int main() {
   spaghetti.setStock(8);
   spaghetti.appendAdditionalInfo("Some info");
 
-  std::cout<<"Hi, I'm Bluey, I will be your server."<<std::endl;
+  std::cout << "Hi, I'm Bluey, I will be your server." << std::endl;
   spaghetti.printItemInfo();
   lasagna.printItemInfo();
   return 0;
