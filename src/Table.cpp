@@ -1,12 +1,12 @@
 #include "sudoManager/Table.hpp"
 
-Table::Table(){};
+Table::Table(){};  // default constructor
 Table::Table(int capacity) {
   for (int i = 0; i < capacity; i++) {
     seats.push_back(TableSeat(i));
   }
-}
-Table::~Table() = default;
+}  // constructor
+Table::~Table() = default;  // destructor
 
 bool Table::isOccupied() const {
   for (auto& seat : seats) {
@@ -15,18 +15,18 @@ bool Table::isOccupied() const {
     }
   }
   return false;
-}
+}  // check if any seat is occupied
 int Table::getCapacity() const { return seats.size(); }
 
 std::vector<const TableSeat*> Table::getUnservedSeats() {
   std::vector<const TableSeat*> unservedSeats;
-  for (auto &seat : seats) {
+  for (auto& seat : seats) {
     if (seat.isOccupied() && !seat.isServed()) {
       unservedSeats.push_back(&seat);
     }
   }
   return unservedSeats;
-}
+}  // get the number of seats
 
 void Table::occupy() {
   if (isOccupied()) {
@@ -35,7 +35,7 @@ void Table::occupy() {
   for (auto& seat : seats) {
     seat.seatGuest();
   }
-}
+}  // occupy all seats
 
 void Table::occupy(int number) {
   if (isOccupied()) {
@@ -51,16 +51,16 @@ void Table::occupy(int number) {
   for (int i = 0; i < number; i++) {
     seats[i].seatGuest();
   }
-}
+}  // occupy a number of seats
 void Table::vacate() {
   for (auto& seat : seats) {
     seat.removeGuest();
   }
-}
+}  // vacate all seats
 
 TableSeat& Table::getSeat(int number) {
   if (number < 0 || number >= seats.size()) {
     throw std::out_of_range("Seat number is out of range");
   }
   return seats[number];
-}
+}  // get a seat by number
