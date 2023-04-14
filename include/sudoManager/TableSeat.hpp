@@ -11,11 +11,11 @@ class TableSeat {
   bool isOccupied() const;  // check if seat is occupied
   bool isServed() const;    // check if seat is served
 
-  void seatGuest();    // seat a guest
-  void removeGuest();  // remove a guest
+  void seatGuest();    // seat guest
+  void removeGuest();  // remove guest
 
-  void serve();  // serve a guest
-  void clear();  // clear a seat
+  void serve();  // serve guest
+  void clear();  // clear seat
 
  private:
   int seatNumber;
