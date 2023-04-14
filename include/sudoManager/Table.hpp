@@ -9,14 +9,15 @@
 class Table {
  public:
   Table();              // default constructor
-  Table(int capacity);  // constructor
+  Table(int capacity);  // constructor, zero indexed
   ~Table();             // destructor
 
   bool isOccupied() const;  // check if any seat is occupied
-  int getCapacity() const;  // get the number of seats
+  int getCapacity() const;  // get the total number of seats
 
-  int getUnservedSeats();  // get all unserved seats
-  void serve();            // serve a meal
+  int getOccupiedSeats();  // get number of occupied seats
+  int getUnservedSeats();  // get number of unserved seats
+  void serveOne();         // serve a meal
   void serve(int number);  // serve a number of meals
 
   void occupy();            // occupy all seats

@@ -3,7 +3,7 @@
 // default constructor
 Table::Table(){};
 
-// constructor
+// constructor, zero indexed
 Table::Table(int capacity) {
   for (int i = 0; i < capacity; i++) {
     seats.push_back(TableSeat(i));
@@ -23,8 +23,21 @@ bool Table::isOccupied() const {
   return false;
 }
 
+// get the total number of seats
 int Table::getCapacity() const { return seats.size(); }
-// get the number of seats
+
+// get number of occupied seats
+int Table::getOccupiedSeats() {
+  int occupiedSeats = 0;
+  for (auto& seat : seats) {
+    if (seat.isOccupied()) {
+      occupiedSeats++;
+    }
+  }
+  return occupiedSeats;
+}
+
+// get the number of unserved seats
 int Table::getUnservedSeats() {
   int unservedSeats = 0;
   for (auto& seat : seats) {
@@ -36,7 +49,7 @@ int Table::getUnservedSeats() {
 }
 
 // serve a meal
-void Table::serve() {
+void Table::serveOne() {
   if (!isOccupied()) {
     throw std::logic_error("Error: Table is not occupied.");
   }
