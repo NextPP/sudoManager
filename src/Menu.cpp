@@ -30,7 +30,7 @@ void Menu::add_menu_item(const Item& item) {
     menuItems.push_back(item);
   } else {
     throw std::invalid_argument(
-      "Item already exists");
+        "Item already exists");
   }
 }
 
@@ -41,7 +41,7 @@ void Menu::removeMenuItem(int item_ID) {
     menuItems.erase(it);
   } else {
     throw std::invalid_argument(
-      "Item with iD: " + std::to_string(item_ID) + " doesn't exist");
+        "Item with iD: " + std::to_string(item_ID) + " doesn't exist");
   }
 }
 
@@ -52,7 +52,7 @@ void Menu::removeMenuItem(const std::string& item_name) {
     menuItems.erase(it);
   } else {
     throw std::invalid_argument(
-      "Item with Name: " + item_name + " doesn't exist");
+        "Item with Name: " + item_name + " doesn't exist");
   }
 }
 
@@ -60,7 +60,7 @@ const Item Menu::getMenuItem(const std::string& item_name) {
   std::vector<Item>::iterator it = findItem(item_name);
   if (it == menuItems.end()) {
     throw std::invalid_argument(
-      "Item with Name: " + item_name + " doesn't exist");
+        "Item with Name: " + item_name + " doesn't exist");
   } else {
     return *it;
   }
@@ -70,7 +70,7 @@ float Menu::getMenuItemPrice(const std::string& item_name) {
   std::vector<Item>::iterator it = findItem(item_name);
   if (it == menuItems.end()) {
     throw std::invalid_argument(
-      "Item with Name: " + item_name + " doesn't exist");
+        "Item with Name: " + item_name + " doesn't exist");
   } else {
     return (*it).getPrice();
   }

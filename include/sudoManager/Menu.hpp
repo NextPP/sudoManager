@@ -4,7 +4,7 @@
 #include<iostream>
 #include<vector>
 #include<stdexcept>
-#include "sudoManager/Item.hpp"
+#include "Item.hpp"
 
 class Menu {
 private:
