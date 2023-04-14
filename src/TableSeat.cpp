@@ -1,16 +1,21 @@
 #include "sudoManager/TableSeat.hpp"
 
-TableSeat::TableSeat() : seatNumber(0), occupied(false), served(false) {}
+TableSeat::TableSeat()
+    : seatNumber(0), occupied(false), served(false) {}  // defaut constructor
 TableSeat::TableSeat(int theSeatNumber)
-    : seatNumber(theSeatNumber), occupied(false), served(false) {}
-TableSeat::~TableSeat() = default;
+    : seatNumber(theSeatNumber),
+      occupied(false),
+      served(false) {}              // constructor
+TableSeat::~TableSeat() = default;  // destructor
 
-int TableSeat::getSeatId() const { return seatNumber; }
-bool TableSeat::isOccupied() const { return occupied; }
-bool TableSeat::isServed() const { return served; }
+int TableSeat::getSeatId() const { return seatNumber; }  // get seat number
+bool TableSeat::isOccupied() const {
+  return occupied;
+}  // check if seat is occupied
+bool TableSeat::isServed() const { return served; }  // check if seat is served
 
-void TableSeat::seatGuest() { occupied = true; }
-void TableSeat::removeGuest() { occupied = false; };
+void TableSeat::seatGuest() { occupied = true; }      // seat guest
+void TableSeat::removeGuest() { occupied = false; };  // remove guest
 
-void TableSeat::serve() { served = true; }
-void TableSeat::clear() { served = false; }
+void TableSeat::serve() { served = true; }   // serve guest
+void TableSeat::clear() { served = false; }  // clear seat
