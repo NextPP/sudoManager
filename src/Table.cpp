@@ -1,13 +1,19 @@
 #include "../include/sudoManager/Table.hpp"
 
-Table::Table(){};  // default constructor
+// default constructor
+Table::Table(){};
+
+// constructor
 Table::Table(int capacity) {
   for (int i = 0; i < capacity; i++) {
     seats.push_back(TableSeat(i));
   }
-}  // constructor
-Table::~Table() = default;  // destructor
+}
 
+// destructor
+Table::~Table() = default;
+
+// check if any seat is occupied
 bool Table::isOccupied() const {
   for (auto& seat : seats) {
     if (seat.isOccupied()) {
@@ -15,9 +21,10 @@ bool Table::isOccupied() const {
     }
   }
   return false;
-}  // check if any seat is occupied
-int Table::getCapacity() const { return seats.size(); }
+}
 
+int Table::getCapacity() const { return seats.size(); }
+// get the number of seats
 int Table::getUnservedSeats() {
   int unservedSeats = 0;
   for (auto& seat : seats) {
@@ -26,8 +33,9 @@ int Table::getUnservedSeats() {
     }
   }
   return unservedSeats;
-}  // get the number of seats
+}
 
+// serve a meal
 void Table::serve() {
   if (!isOccupied()) {
     throw std::logic_error("Error: Table is not occupied.");
@@ -41,7 +49,9 @@ void Table::serve() {
       return;
     }
   }
-}  // serve a meal
+}
+
+// serve a number of meals
 void Table::serve(int number) {
   if (number <= 0) {
     throw std::invalid_argument("Error: Cannot serve less than 1 meal.");
@@ -61,8 +71,9 @@ void Table::serve(int number) {
       meals--;
     }
   }
-}  // serve a number of meals
+}
 
+// occupy all seats
 void Table::occupy() {
   if (isOccupied()) {
     throw std::invalid_argument("Error: Table is already occupied.");
@@ -70,8 +81,9 @@ void Table::occupy() {
   for (auto& seat : seats) {
     seat.seatGuest();
   }
-}  // occupy all seats
+}
 
+// occupy a number of seats
 void Table::occupy(int number) {
   if (number <= 0) {
     throw std::invalid_argument("Error: Cannot seat less than 1 guest.");
@@ -86,16 +98,19 @@ void Table::occupy(int number) {
   for (int i = 0; i < number; i++) {
     seats[i].seatGuest();
   }
-}  // occupy a number of seats
+}
+
+// vacate all seats
 void Table::vacate() {
   for (auto& seat : seats) {
     seat.removeGuest();
   }
-}  // vacate all seats
+}
 
+// get a seat by number
 TableSeat& Table::getSeat(int number) {
   if (number < 0 || number >= seats.size()) {
     throw std::out_of_range("Seat number is out of range");
   }
   return seats[number];
-}  // get a seat by number
+}
