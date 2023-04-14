@@ -3,19 +3,19 @@
 
 class TableSeat {
  public:
-  TableSeat();
-  TableSeat(int seatNumber);
-  ~TableSeat();
+  TableSeat();                // default constructor
+  TableSeat(int seatNumber);  // constructor
+  ~TableSeat();               // destructor
 
-  int getSeatId() const;
-  bool isOccupied() const;
-  bool isServed() const;
+  int getSeatId() const;    // get seat number
+  bool isOccupied() const;  // check if seat is occupied
+  bool isServed() const;    // check if seat is served
 
-  void seatGuest();
-  void removeGuest();
+  void seatGuest();    // seat a guest
+  void removeGuest();  // remove a guest
 
-  void serve();
-  void clear();
+  void serve();  // serve a guest
+  void clear();  // clear a seat
 
  private:
   int seatNumber;
