@@ -5,7 +5,7 @@ if (BUILD_TESTING)
     target_link_libraries(test_bluey PRIVATE GTest::gtest_main)
 
     add_executable(test_table test_table.cpp)
-    target_link_libraries(test_table PRIVATE GTest::gtest_main table tableseat)
+    target_link_libraries(test_table PRIVATE GTest::gtest_main table ${PROJECT_NAME})
 
     include(GoogleTest)
     # Finds all the Google tests associated with the executable
