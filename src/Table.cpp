@@ -1,4 +1,4 @@
-#include "sudoManager/Table.hpp"
+#include "../include/sudoManager/Table.hpp"
 
 Table::Table(){};  // default constructor
 Table::Table(int capacity) {
@@ -18,15 +18,50 @@ bool Table::isOccupied() const {
 }  // check if any seat is occupied
 int Table::getCapacity() const { return seats.size(); }
 
-std::vector<const TableSeat*> Table::getUnservedSeats() {
-  std::vector<const TableSeat*> unservedSeats;
+int Table::getUnservedSeats() {
+  int unservedSeats = 0;
   for (auto& seat : seats) {
     if (seat.isOccupied() && !seat.isServed()) {
-      unservedSeats.push_back(&seat);
+      unservedSeats++;
     }
   }
   return unservedSeats;
 }  // get the number of seats
+
+void Table::serve() {
+  if (!isOccupied()) {
+    throw std::logic_error("Error: Table is not occupied.");
+  }
+  if (getUnservedSeats() == 0) {
+    throw std::logic_error("Error: All seats are already served.");
+  }
+  for (auto& seat : seats) {
+    if (seat.isOccupied() && !seat.isServed()) {
+      seat.serve();
+      return;
+    }
+  }
+}  // serve a meal
+void Table::serve(int number) {
+  if (number <= 0) {
+    throw std::invalid_argument("Error: Cannot serve less than 1 meal.");
+  }
+  if (!isOccupied()) {
+    throw std::logic_error("Error: Table is not occupied.");
+  }
+  if (number > getUnservedSeats()) {
+    throw std::logic_error(
+        "Error: Cannot serve more meals than there are unserved seats.");
+  }
+  int meals = number;
+  for (auto& seat : seats) {
+    if (meals == 0) return;
+    if (seat.isServed() == false) {
+      seat.serve();
+      meals--;
+    }
+  }
+}  // serve a number of meals
 
 void Table::occupy() {
   if (isOccupied()) {
@@ -38,11 +73,11 @@ void Table::occupy() {
 }  // occupy all seats
 
 void Table::occupy(int number) {
-  if (isOccupied()) {
-    throw std::invalid_argument("Error: Table is already occupied.");
-  }
   if (number <= 0) {
     throw std::invalid_argument("Error: Cannot seat less than 1 guest.");
+  }
+  if (isOccupied()) {
+    throw std::logic_error("Error: Table is already occupied.");
   }
   if (number > seats.size()) {
     throw std::invalid_argument(

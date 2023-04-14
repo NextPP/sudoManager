@@ -7,4 +7,9 @@ if (BUILD_TESTING)
     include(GoogleTest)
     # Finds all the Google tests associated with the executable
     gtest_discover_tests(test_bluey)
+
+    add_executable(test_table test_table.cpp)
+    target_link_libraries(test_table PRIVATE GTest::gtest_main table tableseat)
+    gtest_discover_tests(test_table)
+
 endif()

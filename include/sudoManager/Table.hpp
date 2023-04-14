@@ -15,7 +15,9 @@ class Table {
   bool isOccupied() const;  // check if any seat is occupied
   int getCapacity() const;  // get the number of seats
 
-  std::vector<const TableSeat*> getUnservedSeats();  // get all unserved seats
+  int getUnservedSeats();  // get all unserved seats
+  void serve();            // serve a meal
+  void serve(int number);  // serve a number of meals
 
   void occupy();            // occupy all seats
   void occupy(int number);  // occupy a number of seats
