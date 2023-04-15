@@ -1,0 +1,30 @@
+*           text=auto
+
+.git*       text export-ignore
+
+*.c         text
+*.h         text
+*.cpp       text
+*.hpp       text
+*.cxx       text
+*.hxx       text
+*.cc        text
+*.cp        text
+*.cu        text
+*.cmake     text
+*.txt       text
+*.mk        text
+
+*.jpeg      binary
+*.jpg       binary
+*.png       binary
+
+*.a         binary
+*.so        binary
+*.dll       binary
+
+*.yml       -text whitespace=cr-at-eol
+
+*.sh        text eol=lf
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
