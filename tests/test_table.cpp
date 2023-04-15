@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../include/sudoManager/Table.hpp"
+#include "sudoManager/Table.hpp"
 
 // Test the default constructor
 TEST(TableTest, ConstructorDefault) {
