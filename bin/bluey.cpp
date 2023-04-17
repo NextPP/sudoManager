@@ -1,15 +1,14 @@
-#include "sudoManager/Item.hpp"
-#include "sudoManager/Bill.hpp"
-#include "sudoManager/Payment.hpp"
-#include "sudoManager/Menu.hpp"
-
 #include <iostream>
 
-int main() {
+#include "sudoManager/Bill.hpp"
+#include "sudoManager/Item.hpp"
+#include "sudoManager/Menu.hpp"
+#include "sudoManager/Payment.hpp"
 
+int main() {
   std::cout << "Hi, I'm Bluey, I will be your server." << '\n';
 
-  Menu menu {};
+  Menu menu{};
 
   menu.add_menu_item({1, "Spaghetti", 10.0, 1});
   menu.add_menu_item({2, "Pizza", 20.0, 1});
@@ -18,20 +17,18 @@ int main() {
 
   menu.print_menu();
 
-  auto keepOrdering { true };
+  auto keepOrdering{true};
 
-  auto itemNumber { 0 };
+  auto itemNumber{0};
 
-  Bill bill {1};
+  Bill bill{1};
 
   while (keepOrdering) {
-
     std::cout << "Enter the item number of the item you want to order." << '\n';
 
     std::cin >> itemNumber;
 
     switch (itemNumber) {
-
       case 1:
         bill.add_item(menu.getMenuItem("Spaghetti"));
         break;
@@ -51,18 +48,16 @@ int main() {
 
     std::cout << "Is that all ? (y/n)" << '\n';
 
-    auto answer {'n'};
+    auto answer{'n'};
 
     std::cin >> answer;
 
-    if (answer != 'n')
-      keepOrdering = false;
-
+    if (answer != 'n') keepOrdering = false;
   }
 
   std::cout << "Do you want to tip the waiter ? (y/n)" << '\n';
 
-  auto answer {'n'};
+  auto answer{'n'};
 
   std::cin >> answer;
 
@@ -91,24 +86,23 @@ int main() {
         std::cout << "No tip" << '\n';
         break;
     }
-
   }
   std::cout << "Here is your bill: \n";
 
   bill.generate();
 
-  std::cout << "How would you like to pay ? (1 : Cash, 2 : Card, 3 : Check)" << '\n';
+  std::cout << "How would you like to pay ? (1 : Cash, 2 : Card, 3 : Check)"
+            << '\n';
 
-  auto answer2 {0};
+  auto answer2{0};
 
   std::cin >> answer2;
 
-  Payment payment {bill};
+  Payment payment{bill};
 
-  auto isPaid {bill.get_status()};
+  auto isPaid{bill.get_status()};
 
   while (!isPaid) {
-
     switch (answer2) {
       case 1:
         payment.cash_payment();
@@ -125,17 +119,13 @@ int main() {
     }
 
     if (bill.get_status()) {
-
       std::cout << "Thank you for your visit, have a nice day !" << '\n';
       isPaid = true;
 
     } else {
-
       std::cout << "Sorry, we couldn't process your payment." << '\n';
       std::cout << "Please try again." << '\n';
-
     }
-
   }
 
   return 0;
