@@ -3,6 +3,8 @@
 #include "sudoManager/Payment.hpp"
 #include "sudoManager/Menu.hpp"
 
+#include <iostream>
+
 int main() {
 
   std::cout << "Hi, I'm Bluey, I will be your server." << '\n';
