@@ -1,7 +1,10 @@
 # BUILD_TESTING variable is created by include(CTest) It is set to ON by default
 if(BUILD_TESTING)
   add_executable(test_bluey test_bluey.cpp)
-  target_link_libraries(test_bluey PRIVATE GTest::gtest_main)
+
+  target_include_directories(test_bluey PUBLIC ${CMAKE_SOURCE_DIR}/include)
+
+  target_link_libraries(test_bluey PRIVATE GTest::gtest_main sudoManager)
 
   include(GoogleTest)
   # Finds all the Google tests associated with the executable
