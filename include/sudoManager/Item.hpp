@@ -8,6 +8,9 @@
 #define SUDOMANAGER_ITEM_HPP
 
 #include <iostream>
+
+#include <string_view>
+
 class Item {
  private:
   std::string name_;
