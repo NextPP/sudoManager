@@ -4,4 +4,4 @@ project(sudoManager)
 add_library(${PROJECT_NAME} SHARED Menu.cpp Item.cpp Bill.cpp Payment.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_20)
