@@ -48,18 +48,15 @@ void Bill::recalculate_amount() {
  */
 void Bill::remove_item(const Item& item) {
 
-  for (auto it = m_items.begin(); it != m_items.end(); ++it) {
+  auto it {std::find_if(m_items.begin(), m_items.end(),
+               [&item](const Item& it) { return it.getItemID() == item.getItemID(); })};
 
-    if (it->getItemID() == item.getItemID()) {
+  if (it != m_items.end()) {
 
-      m_items.erase(it);
-      break;
-
-    }
+    m_items.erase(it);
+    recalculate_amount();
 
   }
-
-  recalculate_amount();
 
 }
 
