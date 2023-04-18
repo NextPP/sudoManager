@@ -2,6 +2,7 @@
 // Created by derekjtong on 4/17/2023.
 //
 #include "sudoManager/Table.hpp"
+
 #include <stdexcept>
 Table::Table(int numberOfSeats) {
   for (int i = 0; i < numberOfSeats; i++) {
@@ -73,7 +74,8 @@ void Table::serve(int number) {
     throw std::invalid_argument("Error: Cannot serve more than table capacity");
   }
   if (number > getUnservedSeats()) {
-    throw std::invalid_argument("Error: Cannot serve more than number of unserved seats");
+    throw std::invalid_argument(
+        "Error: Cannot serve more than number of unserved seats");
   }
   if (number == 0) {
     throw std::invalid_argument("Error: Cannot serve zero seats");

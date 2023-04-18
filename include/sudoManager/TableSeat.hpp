@@ -5,8 +5,8 @@
 #ifndef SUDOMANAGER_TABLESEAT_HPP
 #define SUDOMANAGER_TABLESEAT_HPP
 
-class TableSeat{
-public:
+class TableSeat {
+ public:
   TableSeat(int seatNumber);
 
   // getters
@@ -24,4 +24,4 @@ public:
   bool m_isServed;
 };
 
-#endif // SUDOMANAGER_TABLESEAT_HPP
+#endif  // SUDOMANAGER_TABLESEAT_HPP
