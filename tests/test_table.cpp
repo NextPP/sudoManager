@@ -88,6 +88,22 @@ TEST(TableTest, ServeUnoccupied) {
   EXPECT_THROW(table.serve(1), std::logic_error);
 }
 
+// Test table is served
+TEST(TableTest, IsServedFalse) {
+  Table table(4);
+  table.occupyAll();
+  table.serve(3);
+  EXPECT_FALSE(table.isServed());
+}
+
+// Test table is served
+TEST(TableTest, IsServedTrue) {
+  Table table(4);
+  table.occupyAll();
+  table.serveAll();
+  EXPECT_TRUE(table.isServed());
+}
+
 int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

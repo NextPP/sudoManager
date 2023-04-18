@@ -12,18 +12,16 @@ Table::Table(int numberOfSeats) {
 int Table::getCapacity() const { return m_seats.size(); }
 
 bool Table::isOccupied() const {
-  for (auto& seat : m_seats)
-    if (seat.isOccupied()) return true;
-  return false;
+  return std::find_if(m_seats.begin(), m_seats.end(), [](const auto& seat) {
+           return seat.isOccupied();
+         }) != m_seats.end();
 }
 
 bool Table::isServed() const {
-  for (auto& seat : m_seats) {
-    if (seat.isOccupied() && !seat.isServed()) {
-      return false;
-    }
-  }
-  return true;
+  auto unserved_seat = std::find_if(
+      m_seats.begin(), m_seats.end(),
+      [](const auto& seat) { return seat.isOccupied() && !seat.isServed(); });
+  return unserved_seat == m_seats.end();
 }
 
 int Table::getUnservedSeats() const {
