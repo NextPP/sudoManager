@@ -2,7 +2,7 @@
 // Created by derekjtong on 4/17/2023.
 //
 #include "sudoManager/Table.hpp"
-
+#include <stdexcept>
 Table::Table(int numberOfSeats) {
   for (int i = 0; i < numberOfSeats; i++) {
     m_seats.push_back(TableSeat(i));
