@@ -4,6 +4,7 @@
 #include "sudoManager/Table.hpp"
 
 #include <stdexcept>
+
 Table::Table(int numberOfSeats) {
   for (int i = 0; i < numberOfSeats; i++) {
     m_seats.push_back(TableSeat(i));
@@ -38,9 +39,7 @@ void Table::occupyAll() {
   if (isOccupied()) {
     throw std::logic_error("Error: Table is already occupied");
   }
-  for (auto& seat : m_seats) {
-    seat.setOccupied(true);
-  }
+  occupy(m_seats.size());
 }
 
 void Table::occupy(int number) {
@@ -61,11 +60,7 @@ void Table::serveAll() {
   if (isServed()) {
     throw std::logic_error("Error: Tables are already served");
   }
-  for (auto& seat : m_seats) {
-    if (seat.isOccupied()) {
-      seat.setServed(true);
-    }
-  }
+  serve(m_seats.size());
 }
 void Table::serve(int number) {
   if (number > m_seats.size()) {
