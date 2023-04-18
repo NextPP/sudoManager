@@ -21,7 +21,6 @@ class Table {
 
   // setters
 
-
   // methods
   void occupyAll();
   void occupy(int number);

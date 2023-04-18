@@ -28,7 +28,7 @@ bool Table::isServed() const {
 int Table::getUnservedSeats() const {
   int unservedSeats = 0;
   for (auto& seat : m_seats) {
-    if (seat.isServed()) {
+    if (seat.isOccupied() && !seat.isServed()) {
       unservedSeats++;
     }
   }
@@ -73,10 +73,15 @@ void Table::serve(int number) {
     throw std::invalid_argument("Error: Cannot serve more than table capacity");
   }
   if (number > getUnservedSeats()) {
-    throw std::invalid_argument(
-        "Error: Cannot serve more than number of unserved seats");
+    throw std::invalid_argument("Error: Cannot serve more than number of unserved seats");
   }
-  if (!isOccupied) {
+  if (number == 0) {
+    throw std::invalid_argument("Error: Cannot serve zero seats");
+  }
+  if (number <= 0) {
+    throw std::invalid_argument("Error: Cannot serve negative seats");
+  }
+  if (!isOccupied()) {
     throw std::logic_error("Error: Cannot serve meal to unoccupied table");
   }
   int meals = number;
